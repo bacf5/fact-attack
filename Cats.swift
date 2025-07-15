@@ -8,5 +8,5 @@
 import Foundation
 
 struct Cats: Decodable {
-    let url: [URL]
+    let url: String
 }
