@@ -13,7 +13,7 @@ struct FetchService {
         case badResponse
     }
     
-    
+    // Cat fetch
     let catImgURL = URL(string: "https://api.thecatapi.com/v1/images/search")!
     
     func fetchCatImg(from catApi: String) async throws -> Cats {
@@ -33,6 +33,25 @@ struct FetchService {
         
         
     }
+    
+    
+    // Dog fetch
+    let dogImgURL = URL(string: "https://dog.ceo/api/breeds/image/random")!
+    
+    func fetchDogImg(from dogApi: String) async throws -> Dogs {
+        let (data, response) = try await URLSession.shared.data(from: dogImgURL)
+        
+        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+            throw FetchError.badResponse
+        }
+        let dogImg = try JSONDecoder().decode(Dogs.self, from: data)
+        
+        return dogImg
+    }
+    
+    
+    
+    
     
     
     
