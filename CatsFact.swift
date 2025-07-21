@@ -6,5 +6,5 @@
 //
 
 struct CatsFact: Decodable {
-    let data: [Facts]
+    let data: String
 }

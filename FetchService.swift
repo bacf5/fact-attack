@@ -7,14 +7,15 @@
 
 import Foundation
 
+// FecthController
 struct FetchService {
     
-    enum FetchError: Error {
+    private enum FetchError: Error {
         case badResponse
     }
     
     // Cat fetch
-    let catImgURL = URL(string: "https://api.thecatapi.com/v1/images/search")!
+    private let catImgURL = URL(string: "https://api.thecatapi.com/v1/images/search")!
     
     func fetchCatImg(from catApi: String) async throws -> Cats {
         
@@ -34,9 +35,27 @@ struct FetchService {
         
     }
     
+    // Fetch cat fact
+    
+    private let catFactURL = URL(string: "https://meowfacts.herokuapp.com/")
+    
+    func fetchCatFact(from: factCatApi: string) async throws CatsFact {
+        
+        let (data, response) = try await URLSession.shared.data(from: catFactURL)
+        
+        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+            throw FetchError.badResponse
+        }
+        
+        let catFact = try JSONDecoder().decode(CatsFact.self, from: data)
+        
+        return catFact
+    }
+    
+    
     
     // Dog fetch
-    let dogImgURL = URL(string: "https://dog.ceo/api/breeds/image/random")!
+    private let dogImgURL = URL(string: "https://dog.ceo/api/breeds/image/random")!
     
     func fetchDogImg(from dogApi: String) async throws -> Dogs {
         let (data, response) = try await URLSession.shared.data(from: dogImgURL)
@@ -47,6 +66,23 @@ struct FetchService {
         let dogImg = try JSONDecoder().decode(Dogs.self, from: data)
         
         return dogImg
+    }
+    
+    // Fetch dog fact
+    
+    private let dogFactURL = URL(string: "https://dogapi.dog/api/v2/facts?limit=1")
+    
+    func fetchFactDog(from: factDogApi: string) async throws -> DogsFact {
+        
+        let (data, response) = try await URLSession.shared.data(from: dogFactURL)
+        
+        guard let response = response as? HTTPURLResponse, response.statucode == 200 else {
+            throw FetchError.badResponse
+        }
+        
+        let dogFact = try JSONDecoder().decode(DogsFact.self, from: data)
+        
+        return dogFact
     }
     
     
