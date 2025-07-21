@@ -37,7 +37,7 @@ struct FetchService {
     
     // Fetch cat fact
     
-    private let catFactURL = URL(string: "https://meowfacts.herokuapp.com/")
+    private let catFactURL = URL(string: "https://meowfacts.herokuapp.com/")!
     
     func fetchCatFact(from: factCatApi: string) async throws CatsFact {
         
@@ -70,7 +70,7 @@ struct FetchService {
     
     // Fetch dog fact
     
-    private let dogFactURL = URL(string: "https://dogapi.dog/api/v2/facts?limit=1")
+    private let dogFactURL = URL(string: "https://dogapi.dog/api/v2/facts?limit=1")!
     
     func fetchFactDog(from: factDogApi: string) async throws -> DogsFact {
         
