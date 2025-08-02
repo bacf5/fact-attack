@@ -48,13 +48,18 @@ class ViewModel {
         dogFact = try! decoder.decode(DogsFact.self, from: dogFactData)
     }
     
-    func getData(for cat: String) async {
+    func getData(for animal: String) async {
         status = .fetching
+        
+        // Separate the loads with an if? statement or something like that depends on the view we have [Cats-Dogs-Ducks]
         
         do {
             catImg = try await fetcher.fetchCatImg()
-            
             catFact = try await fetcher.fetchCatFact()
+            dogImg = try await fetcher.fetchDogImg()
+            dogFact = try await fetcher.fetchDogFact()
+            
+            status = .success
             
         } catch {
             status = .failed(error: error)
