@@ -51,7 +51,7 @@ class ViewModel {
     func getData(for animal: String) async {
         status = .fetching
         
-        // Separate the loads with an if? statement or something like that depends on the view we have [Cats-Dogs-Ducks]
+        // Separate the loads with an if? statement or something like that depends on the tab we are [Cats-Dogs-Ducks]
         
         do {
             catImg = try await fetcher.fetchCatImg()
