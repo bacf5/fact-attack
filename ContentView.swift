@@ -11,11 +11,11 @@ struct ContentView: View {
     var body: some View {
         TabView {
             Tab("Cats", systemImage: "cat.fill") {
-                Text("Cats view").toolbarBackgroundVisibility(.visible, for: .tabBar)
+                FactView(animal: "cat").toolbarBackgroundVisibility(.visible, for: .tabBar)
             }
             
             Tab("Dogs", systemImage: "dog.fill") {
-                Text("Dogs view").toolbarBackgroundVisibility(.visible, for: .tabBar)
+                FactView(animal: "dog").toolbarBackgroundVisibility(.visible, for: .tabBar)
             }
         }
     }
