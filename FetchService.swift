@@ -85,6 +85,11 @@ struct FetchService {
         return dogFact
     }
     
+//    --- [UPDATE] ---
+    
+    // Fetch duck img
+    
+    // Fetch duck fact
     
     
     
