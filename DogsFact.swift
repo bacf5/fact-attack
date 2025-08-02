@@ -6,5 +6,5 @@
 //
 
 struct DogsFact: Decodable {
-    let facts: String
+    let facts: [String]
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 struct Dogs: Decodable {
-    let message: [URL]
+    let message: String
 }
 
 
