@@ -24,6 +24,8 @@ class ViewModel {
     
     var catImg: Cats
     var catFact: CatsFact
+    var dogImg: Dogs
+    var dogFact: DogsFact
     
  
     init() {
@@ -36,6 +38,14 @@ class ViewModel {
         let catFactData = try! Data(contentsOf: Bundle.main.url(forResource: "samplecatfacts", withExtension: "json")!)
         
         catFact = try! decoder.decode(CatsFact.self, from: catFactData)
+        
+        let dogData = try! Data(contentsOf: Bundle.main.url(forResource: "sampledog", withExtension: "json")!)
+        
+        dogImg = try! decoder.decode(Dogs.self, from: dogData)
+        
+        let dogFactData = try! Data(contentsOf: Bundle.main.url(forResource: "sampledogfacts", withExtension: "json")!)
+        
+        dogFact = try! decoder.decode(DogsFact.self, from: dogFactData)
     }
     
     func getData(for cat: String) async {
