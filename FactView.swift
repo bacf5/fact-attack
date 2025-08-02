@@ -1,26 +1,32 @@
 //
-//  ContentView.swift
+//  FactView.swift
 //  FactAttack
 //
-//  Created by Bruno Agustín Caruso Fassa on 10/07/2025.
+//  Created by Bruno Agustín Caruso Fassa on 02/08/2025.
 //
 
 import SwiftUI
 
-struct ContentView: View {
+struct FactView: View {
+    let vm = ViewModel()
+    let animal: String
+    
     var body: some View {
-        TabView {
-            Tab("Cats", systemImage: "cat.fill") {
-                Text("Cats view").toolbarBackgroundVisibility(.visible, for: .tabBar)
+        GeometryReader { geo in
+            ZStack {
+                Image(animal.self)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+//                    .frame(width: geo.size.width, height: geo.size.height)
             }
-            
-            Tab("Dogs", systemImage: "dog.fill") {
-                Text("Dogs view").toolbarBackgroundVisibility(.visible, for: .tabBar)
-            }
+            .frame(width: geo.size.width, height: geo.size.height)
         }
+        .ignoresSafeArea()
+        
+        
     }
 }
 
 #Preview {
-    ContentView()
+    FactView(animal: "cat")
 }
