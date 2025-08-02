@@ -17,7 +17,7 @@ struct FetchService {
     // Cat fetch
     private let catImgURL = URL(string: "https://api.thecatapi.com/v1/images/search")!
     
-    func fetchCatImg(from catApi: String) async throws -> Cats {
+    func fetchCatImg() async throws -> Cats {
         
         // Fetch
         let (data, response) = try await URLSession.shared.data(from: catImgURL)
@@ -39,7 +39,7 @@ struct FetchService {
     
     private let catFactURL = URL(string: "https://meowfacts.herokuapp.com/")!
     
-    func fetchCatFact(from: factCatApi: string) async throws CatsFact {
+    func fetchCatFact() async throws -> CatsFact {
         
         let (data, response) = try await URLSession.shared.data(from: catFactURL)
         
@@ -57,7 +57,7 @@ struct FetchService {
     // Dog fetch
     private let dogImgURL = URL(string: "https://dog.ceo/api/breeds/image/random")!
     
-    func fetchDogImg(from dogApi: String) async throws -> Dogs {
+    func fetchDogImg() async throws -> Dogs {
         let (data, response) = try await URLSession.shared.data(from: dogImgURL)
         
         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
@@ -70,13 +70,13 @@ struct FetchService {
     
     // Fetch dog fact
     
-    private let dogFactURL = URL(string: "https://dogapi.dog/api/v2/facts?limit=1")!
+    private let dogFactURL = URL(string: "https://dogapi.dog/api/facts")!
     
-    func fetchFactDog(from: factDogApi: string) async throws -> DogsFact {
+    func fetchDogFact() async throws -> DogsFact {
         
         let (data, response) = try await URLSession.shared.data(from: dogFactURL)
         
-        guard let response = response as? HTTPURLResponse, response.statucode == 200 else {
+        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
             throw FetchError.badResponse
         }
         
@@ -96,7 +96,7 @@ struct FetchService {
 //    let catImgURL = "https://api.thecatapi.com/v1/images/search"
 //    let catFactsURL = "https://meowfacts.herokuapp.com/"
 //    let dogImgURL = "https://dog.ceo/api/breeds/image/random"
-//    let dogFactsURL = "https://dogapi.dog/api/v2/facts?limit=1"
+//    let dogFactsURL = "https://dogapi.dog/api/facts"
 
     
     
