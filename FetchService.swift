@@ -89,20 +89,29 @@ struct FetchService {
     
     // Fetch duck img
     
+    private let duckImageURL = URL(string:"https://random-d.uk/api/v2/random")!
+    
+    func fetchDuckImg() async throws -> Ducks {
+        let (data, response) = try await URLSession.shared.data(from: duckImageURL)
+        
+        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+            throw FetchError.badResponse
+        }
+        
+        let duckImg = try JSONDecoder().decode(Ducks.self, from: data)
+        
+        return duckImg
+    }
+    
     // Fetch duck fact
     
-    
+//   -------[NO API FOUND TO DO THIS, BUT NEXT THING TO DO IS MAKE ONE]------------------
     
     
     
     
     // For catimgurl at some point im gonna need an api-key wich i have.
     
-//    let catImgURL = "https://api.thecatapi.com/v1/images/search"
-//    let catFactsURL = "https://meowfacts.herokuapp.com/"
-//    let dogImgURL = "https://dog.ceo/api/breeds/image/random"
-//    let dogFactsURL = "https://dogapi.dog/api/facts"
-
     
     
 }

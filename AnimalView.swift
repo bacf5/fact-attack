@@ -159,6 +159,75 @@ struct AnimalView: View {
                         
                     }
                     .frame(width: geo.size.width, height: geo.size.height)
+                    
+                } else if (animal == "duck") {
+                    
+                    Image(animal.self)
+                        .resizable()
+                        .frame(
+                            width: geo.size.width * 1.6,
+                            height: geo.size.height
+                        )
+                    
+                    VStack {
+                        VStack {
+                            Spacer(minLength: 60)
+                            
+                            switch vm.status {
+                            case .notStarted:
+                                EmptyView()
+                            case .fetching:
+                                ProgressView()
+                            case .success:
+                                Text(
+                                    "There's no fact for ducks... YET"
+                                )
+                                .minimumScaleFactor(0.5)
+                                .multilineTextAlignment(.center)
+                                .foregroundStyle(.white)
+                                .padding()
+                                .background(.black.opacity(0.7))
+                                .clipShape(.rect(cornerRadius: 25))
+                                
+                                
+                                ZStack(alignment: .bottom) {
+                                    AsyncImage(
+                                        url: URL(string: vm.duckImg.url)
+                                    ) { image in
+                                        image
+                                            .resizable()
+                                            .scaledToFill()
+                                    } placeholder: {
+                                        ProgressView()
+                                    }
+                                    
+                                }
+                                .frame(
+                                    width: geo.size.width / 1.1,
+                                    height: geo.size.height / 1.8
+                                )
+                                .clipShape(.rect(cornerRadius: 50))
+                            case .failed(let error):
+                                Text(error.localizedDescription)
+                            }
+                            Spacer()
+                        }
+                        Button {
+                            Task {
+                                await vm.getData(for: animal)
+                            }
+                        } label: {
+                            Text("Duck Attacc! 🦆")
+                                .font(.title)
+                                .foregroundStyle(.white)
+                                .padding()
+                                .background(.teal.opacity(0.7))
+                                .clipShape(.rect(cornerRadius: 10))
+                                .shadow(color: .black, radius: 3)
+                        }
+                        
+                        Spacer(minLength: 95)
+                    }
                 }
             }
             .frame(width: geo.size.width, height: geo.size.height)
@@ -168,5 +237,5 @@ struct AnimalView: View {
 }
 
 #Preview {
-    AnimalView(animal: "dog")
+    AnimalView(animal: "duck")
 }

@@ -26,6 +26,7 @@ class ViewModel {
     var catFact: CatsFact
     var dogImg: Dogs
     var dogFact: DogsFact
+    var duckImg: Ducks
     
  
     init() {
@@ -46,6 +47,10 @@ class ViewModel {
         let dogFactData = try! Data(contentsOf: Bundle.main.url(forResource: "sampledogfacts", withExtension: "json")!)
         
         dogFact = try! decoder.decode(DogsFact.self, from: dogFactData)
+        
+        let duckData = try! Data(contentsOf: Bundle.main.url(forResource: "sampleduck", withExtension: "json")!)
+        
+        duckImg = try! decoder.decode(Ducks.self, from: duckData)
     }
     
     func getData(for animal: String) async {
@@ -74,6 +79,14 @@ class ViewModel {
                 status = .failed(error: error)
             }
             
+        } else if (animal == "duck") {
+            do {
+                duckImg = try await fetcher.fetchDuckImg()
+                
+                status = .success
+            } catch {
+                status = .failed(error: error)
+            }
         }
         
 //        do {

@@ -17,6 +17,10 @@ struct ContentView: View {
             Tab("Dogs", systemImage: "dog.fill") {
                 AnimalView(animal: "dog").toolbarBackgroundVisibility(.visible, for: .tabBar)
             }
+            
+            Tab("Ducks", image: ("duck-tabview")) {
+                AnimalView(animal: "duck").toolbarBackgroundVisibility(.visible, for: .tabBar)
+            }
         }
     }
 }
