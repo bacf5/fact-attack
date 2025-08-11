@@ -2,6 +2,8 @@
   ✨ Fact Attack!🐾 ✨
 </h2>
 
+<p align="center"><img width="300" alt="image" src="Assets.xcassets/AppIcon.appiconset/appIcon2.png"></p>
+
 ## Table of Contents
 
 - [Description](#description)
@@ -23,7 +25,7 @@ So i made Fact Attack! because obviusly i love these animals, but also, wanted t
 ## Built with
 
 - SwiftUI
-- Xcode 16.5
+- Xcode 16.4
 
 ## Concepts Used
 
