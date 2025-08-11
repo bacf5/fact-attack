@@ -14,46 +14,67 @@ struct AnimalView: View {
     
     var body: some View {
         GeometryReader { geo in
+            
             ZStack {
                 if (animal == "cat") {
                     Image(animal.self)
                         .resizable()
-                        .frame(width: geo.size.width * 1.6, height: geo.size.height)
+                        .frame(
+                            width: geo.size.width * 1.6,
+                            height: geo.size.height
+                        )
                     
                     VStack {
-                        
-                        Spacer(minLength: 60)
-                        
-                        Text("\"\(vm.catFact.data.first ?? "Loading fact...")\"")
-                            .minimumScaleFactor(0.5)
-                            .multilineTextAlignment(.center)
-                            .foregroundStyle(.white)
-                            .padding()
-                            .background(.black.opacity(0.7))
-                            .clipShape(.rect(cornerRadius: 25))
-                
-                        
-                        ZStack(alignment: .bottom) {
-                            AsyncImage(url: URL(string: vm.catImg[0].url)) { image in
-                                image
-                                    .resizable()
-                                    .scaledToFill()
-                            } placeholder: {
+                        VStack {
+                            Spacer(minLength: 60)
+                            
+                            switch vm.status {
+                            case .notStarted:
+                                EmptyView()
+                            case .fetching:
                                 ProgressView()
+                            case .success:
+                                Text(
+                                    "\"\(vm.catFact.data.first ?? "Loading fact...")\""
+                                )
+                                .minimumScaleFactor(0.5)
+                                .multilineTextAlignment(.center)
+                                .foregroundStyle(.white)
+                                .padding()
+                                .background(.black.opacity(0.7))
+                                .clipShape(.rect(cornerRadius: 25))
+                                
+                                
+                                ZStack(alignment: .bottom) {
+                                    AsyncImage(
+                                        url: URL(string: vm.catImg[0].url)
+                                    ) { image in
+                                        image
+                                            .resizable()
+                                            .scaledToFill()
+                                    } placeholder: {
+                                        ProgressView()
+                                    }
+                                    
+                                }
+                                .frame(
+                                    width: geo.size.width / 1.1,
+                                    height: geo.size.height / 1.8
+                                )
+                                .clipShape(.rect(cornerRadius: 50))
+                            case .failed(let error):
+                                Text(error.localizedDescription)
                             }
                             
+                            Spacer()
+                            
                         }
-                        .frame(width: geo.size.width / 1.1, height: geo.size.height / 1.8)
-                        .clipShape(.rect(cornerRadius: 50))
-                        
-                        Spacer()
-                        
                         Button {
                             Task {
                                 await vm.getData(for: animal)
                             }
                         } label: {
-                            Text("Random Fact Attacc! 🐱")
+                            Text("Fact Attacc! 🐱")
                                 .font(.title)
                                 .foregroundStyle(.white)
                                 .padding()
@@ -71,46 +92,65 @@ struct AnimalView: View {
                     
                     Image(animal.self)
                         .resizable()
-                        .frame(width: geo.size.width * 1.6, height: geo.size.height)
+                        .frame(
+                            width: geo.size.width * 1.6,
+                            height: geo.size.height
+                        )
                     
                     VStack {
-                        
-                        Spacer(minLength: 60)
-                        
-                        Text("\"\(vm.dogFact.facts.first ?? "Loading fact...")\"")
-                            .minimumScaleFactor(0.5)
-                            .multilineTextAlignment(.center)
-                            .foregroundStyle(.white)
-                            .padding()
-                            .background(.black.opacity(0.7))
-                            .clipShape(.rect(cornerRadius: 25))
-                    
-                        
-                        ZStack(alignment: .bottom) {
-                            AsyncImage(url: URL(string: vm.dogImg.message)) { image in
-                                image
-                                    .resizable()
-                                    .scaledToFill()
-                            } placeholder: {
+                        VStack {
+                            Spacer(minLength: 60)
+                            
+                            switch vm.status {
+                            case .notStarted:
+                                EmptyView()
+                            case .fetching:
                                 ProgressView()
+                            case .success:
+                                Text(
+                                    "\"\(vm.dogFact.facts.first ?? "Loading fact...")\""
+                                )
+                                .minimumScaleFactor(0.5)
+                                .multilineTextAlignment(.center)
+                                .foregroundStyle(.white)
+                                .padding()
+                                .background(.black.opacity(0.7))
+                                .clipShape(.rect(cornerRadius: 25))
+                                
+                                
+                                ZStack(alignment: .bottom) {
+                                    AsyncImage(
+                                        url: URL(string: vm.dogImg.message)
+                                    ) { image in
+                                        image
+                                            .resizable()
+                                            .scaledToFill()
+                                    } placeholder: {
+                                        ProgressView()
+                                    }
+                                    
+                                }
+                                .frame(
+                                    width: geo.size.width / 1.1,
+                                    height: geo.size.height / 1.8
+                                )
+                                .clipShape(.rect(cornerRadius: 50))
+                            case .failed(let error):
+                                Text(error.localizedDescription)
                             }
                             
+                            Spacer()
                         }
-                        .frame(width: geo.size.width / 1.1, height: geo.size.height / 1.8)
-                        .clipShape(.rect(cornerRadius: 50))
-                        
-                        Spacer()
-                        
                         Button {
                             Task {
                                 await vm.getData(for: animal)
                             }
                         } label: {
-                            Text("Random Fact Attacc! 🐶")
+                            Text("Fact Attacc! 🐶")
                                 .font(.title)
                                 .foregroundStyle(.white)
                                 .padding()
-                                .background(.orange.opacity(0.8))
+                                .background(.brown.opacity(0.8))
                                 .clipShape(.rect(cornerRadius: 10))
                                 .shadow(color: .black, radius: 3)
                         }
