@@ -2,6 +2,7 @@
 //  AnimalView.swift
 //  FactAttack
 //
+// before was named FactView.swift
 //  Created by Bruno Agustín Caruso Fassa on 02/08/2025.
 //
 
@@ -33,7 +34,7 @@ struct AnimalView: View {
                 
                         
                         ZStack(alignment: .bottom) {
-                            AsyncImage(url: URL(string: vm.catImg.url)) { image in
+                            AsyncImage(url: URL(string: vm.catImg[0].url)) { image in
                                 image
                                     .resizable()
                                     .scaledToFill()
@@ -48,7 +49,9 @@ struct AnimalView: View {
                         Spacer()
                         
                         Button {
-                            
+                            Task {
+                                await vm.getData(for: animal)
+                            }
                         } label: {
                             Text("Random Fact Attacc! 🐱")
                                 .font(.title)
@@ -99,7 +102,9 @@ struct AnimalView: View {
                         Spacer()
                         
                         Button {
-                            
+                            Task {
+                                await vm.getData(for: animal)
+                            }
                         } label: {
                             Text("Random Fact Attacc! 🐶")
                                 .font(.title)
@@ -123,5 +128,5 @@ struct AnimalView: View {
 }
 
 #Preview {
-    AnimalView(animal: "cat")
+    AnimalView(animal: "dog")
 }

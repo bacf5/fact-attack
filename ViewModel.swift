@@ -22,7 +22,7 @@ class ViewModel {
     
     private let fetcher = FetchService()
     
-    var catImg: Cats
+    var catImg: [Cats]
     var catFact: CatsFact
     var dogImg: Dogs
     var dogFact: DogsFact
@@ -33,7 +33,7 @@ class ViewModel {
         
         let catData = try! Data(contentsOf: Bundle.main.url(forResource: "samplecat", withExtension: "json")!)
         
-        catImg = try! decoder.decode(Cats.self, from: catData)
+        catImg = try! decoder.decode([Cats].self, from: catData)
         
         let catFactData = try! Data(contentsOf: Bundle.main.url(forResource: "samplecatfacts", withExtension: "json")!)
         
@@ -49,21 +49,43 @@ class ViewModel {
     }
     
     func getData(for animal: String) async {
+        
         status = .fetching
         
         // Separate the loads with an if? statement or something like that depends on the tab we are [Cats-Dogs-Ducks]
         
-        do {
-            catImg = try await fetcher.fetchCatImg()
-            catFact = try await fetcher.fetchCatFact()
-            dogImg = try await fetcher.fetchDogImg()
-            dogFact = try await fetcher.fetchDogFact()
+        if (animal == "cat") {
+            do {
+//                catImg = try await fetcher.fetchCatImg()
+                catFact = try await fetcher.fetchCatFact()
+                
+                status = .success
+            } catch {
+                status = .failed(error: error)
+            }
+        } else if (animal == "dog") {
+            do {
+                dogImg = try await fetcher.fetchDogImg()
+                dogFact = try await fetcher.fetchDogFact()
+                
+                status = .success
+            } catch {
+                status = .failed(error: error)
+            }
             
-            status = .success
-            
-        } catch {
-            status = .failed(error: error)
         }
+        
+//        do {
+//            catImg = try await fetcher.fetchCatImg()
+//            catFact = try await fetcher.fetchCatFact()
+//            dogImg = try await fetcher.fetchDogImg()
+//            dogFact = try await fetcher.fetchDogFact()
+//            
+//            status = .success
+//            
+//        } catch {
+//            status = .failed(error: error)
+//        }
     }
     
 }
