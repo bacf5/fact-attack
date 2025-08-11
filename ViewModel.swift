@@ -56,9 +56,10 @@ class ViewModel {
         
         if (animal == "cat") {
             do {
-//                catImg = try await fetcher.fetchCatImg()
-                catFact = try await fetcher.fetchCatFact()
                 
+                catImg = try await fetcher.fetchCatImg()
+                catFact = try await fetcher.fetchCatFact()
+            
                 status = .success
             } catch {
                 status = .failed(error: error)
