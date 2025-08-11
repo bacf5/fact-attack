@@ -17,7 +17,7 @@ struct FetchService {
     // Cat fetch
     private let catImgURL = URL(string: "https://api.thecatapi.com/v1/images/search")!
     
-    func fetchCatImg() async throws -> Cats {
+    func fetchCatImg() async throws -> [Cats] {
         
         // Fetch
         let (data, response) = try await URLSession.shared.data(from: catImgURL)
@@ -27,7 +27,7 @@ struct FetchService {
             throw FetchError.badResponse
         }
         // Decode data
-        let catImg = try JSONDecoder().decode(Cats.self, from: data)
+        let catImg = try JSONDecoder().decode([Cats].self, from: data)
         
         // return img
         return catImg
