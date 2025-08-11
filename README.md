@@ -10,13 +10,12 @@
 - [Motivation](#motivation)
 - [Built with](#built-with)
 - [Concepts Used](#concepts-used)
-- [Credits](#credits)
 - [Showcase](#showcase)
 - [To-do](#to-do)
 
 ## Description
 
-Fact Attack! is a lightweight app that delivers random images and facts about cats, dogs, and ducks, all at the tap of a button. Using multiple APIs, instantly fetches a fresh picture and an interesting "facto" for the selected animal. Navigation is handled through simple TabViews, letting you switch seamlessly between your favorite animal.
+Fact Attack! is a lightweight app that delivers random images and facts about cats, dogs, and ducks, with the tap of a button. Using multiple APIs, instantly fetches a fresh picture and an interesting "facto" for the selected animal. Navigation is handled through simple TabViews, letting you switch seamlessly between your favorite animal.
 
 ## Motivation
 
@@ -46,6 +45,9 @@ TabView • JSONDecoder() • Async API Calls • Async Image Loading • task()
 - [ ] Include a disclaimer that facts are not verified lol
 
 phew.
+
+> [!NOTE]
+> The app icon was made with Gemini AI.
 
 -----
 
