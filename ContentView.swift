@@ -15,7 +15,7 @@ struct ContentView: View {
             }
             
             Tab("Dogs", systemImage: "dog.fill") {
-                FactView(animal: "dog").toolbarBackgroundVisibility(.visible, for: .tabBar)
+//                FactView(animal: "dog").toolbarBackgroundVisibility(.visible, for: .tabBar)
             }
         }
     }
