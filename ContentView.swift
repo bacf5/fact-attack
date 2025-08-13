@@ -10,11 +10,11 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-            Tab("Cats", systemImage: "cat.fill") {
+            Tab("Cats", image: "cat-tabview") {
                 AnimalView(animal: "cat").toolbarBackgroundVisibility(.visible, for: .tabBar)
             }
             
-            Tab("Dogs", systemImage: "dog.fill") {
+            Tab("Dogs", image: "dog-tabview") {
                 AnimalView(animal: "dog").toolbarBackgroundVisibility(.visible, for: .tabBar)
             }
             
