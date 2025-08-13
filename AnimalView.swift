@@ -20,8 +20,8 @@ struct AnimalView: View {
                     Image(animal.self)
                         .resizable()
                         .frame(
-                            width: geo.size.width * 1.6,
-                            height: geo.size.height
+                            width: geo.size.width * 1.8,
+                            height: geo.size.height * 1
                         )
                     
                     VStack {
@@ -93,8 +93,8 @@ struct AnimalView: View {
                     Image(animal.self)
                         .resizable()
                         .frame(
-                            width: geo.size.width * 1.6,
-                            height: geo.size.height
+                            width: geo.size.width * 1.8,
+                            height: geo.size.height * 1
                         )
                     
                     VStack {
@@ -163,10 +163,10 @@ struct AnimalView: View {
                 } else if (animal == "duck") {
                     
                     Image(animal.self)
-                        .resizable()
+                        .resizable() // scaledToFill()
                         .frame(
-                            width: geo.size.width * 1.6,
-                            height: geo.size.height
+                            width: geo.size.width * 1.8,
+                            height: geo.size.height * 1
                         )
                     
                     VStack {
@@ -237,5 +237,5 @@ struct AnimalView: View {
 }
 
 #Preview {
-    AnimalView(animal: "duck")
+    AnimalView(animal: "cat")
 }
