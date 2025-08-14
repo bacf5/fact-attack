@@ -11,6 +11,7 @@ import AVFAudio
 
 struct AnimalView: View {
     @State private var audioPlayer: AVAudioPlayer!
+    @State private var isButtonDisabled = false
     let vm = ViewModel()
     let animal: String
     let soundName = "pop"
@@ -74,11 +75,12 @@ struct AnimalView: View {
                         }
                         
                         Button {
+                            isButtonDisabled.toggle()
+                            
                             guard let soundFile = NSDataAsset(name: soundName) else {
                                 print("😵‍💫 could not read file name \(soundName)")
                                 return
                             }
-                            
                             do {
                                 audioPlayer = try AVAudioPlayer(data: soundFile.data)
                                 audioPlayer.play()
@@ -88,7 +90,9 @@ struct AnimalView: View {
                             
                             Task {
                                 await vm.getData(for: animal)
-                            }
+                                try await Task.sleep(nanoseconds: 3 * 1_000_000_000)
+                                isButtonDisabled.toggle()
+                                }
                             
                         } label: {
                             Text("Fact Attacc! 🐱")
@@ -98,7 +102,9 @@ struct AnimalView: View {
                                 .background(.orange.opacity(0.8))
                                 .clipShape(.rect(cornerRadius: 10))
                                 .shadow(color: .black, radius: 3)
+                                
                         }
+                        .disabled(isButtonDisabled)
                         
                         Spacer(minLength: 95)
                         
@@ -159,6 +165,8 @@ struct AnimalView: View {
                             Spacer()
                         }
                         Button {
+                            isButtonDisabled.toggle()
+                            
                             guard let soundFile = NSDataAsset(name: soundName) else {
                                 print("😵‍💫 could not read file name \(soundName)")
                                 return
@@ -172,6 +180,8 @@ struct AnimalView: View {
                             }
                             Task {
                                 await vm.getData(for: animal)
+                                try await Task.sleep(nanoseconds: 3 * 1_000_000_000)
+                                isButtonDisabled.toggle()
                             }
                         } label: {
                             Text("Fact Attacc! 🐶")
@@ -182,6 +192,7 @@ struct AnimalView: View {
                                 .clipShape(.rect(cornerRadius: 10))
                                 .shadow(color: .black, radius: 3)
                         }
+                        .disabled(isButtonDisabled)
                         
                         Spacer(minLength: 95)
                         
@@ -241,6 +252,8 @@ struct AnimalView: View {
                             Spacer()
                         }
                         Button {
+                            isButtonDisabled.toggle()
+                            
                             guard let soundFile = NSDataAsset(name: soundName) else {
                                 print("😵‍💫 could not read file name \(soundName)")
                                 return
@@ -254,6 +267,8 @@ struct AnimalView: View {
                             }
                             Task {
                                 await vm.getData(for: animal)
+                                try await Task.sleep(nanoseconds: 3 * 1_000_000_000)
+                                isButtonDisabled.toggle()
                             }
                         } label: {
                             Text("Duck Attacc! 🦆")
@@ -264,6 +279,7 @@ struct AnimalView: View {
                                 .clipShape(.rect(cornerRadius: 10))
                                 .shadow(color: .black, radius: 3)
                         }
+                        .disabled(isButtonDisabled)
                         
                         Spacer(minLength: 95)
                     }
