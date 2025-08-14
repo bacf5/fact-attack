@@ -38,7 +38,7 @@ TabView • JSONDecoder() • Async API Calls • Async Image Loading • task()
 
 - [x] ~~Fix Duck icon 🦆 in TabView (dark mode appears too dark).~~
 - [ ] Replace default ProgressView with a custom loader or something else.
-- [ ] Add animation and improved styling to the main button.
+- [x] ~~Add animation and improved styling to the main button.~~
 - [ ] Add an “Info” viewSheet with Wikipedia Info and links for each animal. Maybe?
 - [x] ~~Create a custom REST API for duck facts (none currently available that i could find).~~ [duck API](https://github.com/bacf5/ducks-api)
 - [ ] Add images and GIFs to the README to showcase the app
@@ -46,7 +46,7 @@ TabView • JSONDecoder() • Async API Calls • Async Image Loading • task()
 - [x] ~~Add sound feedback when you tap the button~~
 - [ ] Make the img tapable to enlarge - probably.
 - [ ] Add a form to POST a new duck fact into my API.
-- [ ] Add a custom launch screen. Just for the fun.
+- [ ] Add a custom launch screen.
 
 
 phew.
