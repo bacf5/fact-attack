@@ -36,13 +36,17 @@ TabView • JSONDecoder() • Async API Calls • Async Image Loading • task()
 
 ## To-do
 
-- [ ] Fix Duck icon 🦆 in TabView (dark mode appears too dark).
+- [x] ~~Fix Duck icon 🦆 in TabView (dark mode appears too dark).~~
 - [ ] Replace default ProgressView with a custom loader or something else.
 - [ ] Add animation and improved styling to the main button.
 - [ ] Add an “Info” viewSheet with Wikipedia Info and links for each animal. Maybe?
-- [ ] Create a custom REST API for duck facts (none currently available that i could find).
+- [x] ~~Create a custom REST API for duck facts (none currently available that i could find).~~ (duck API)[https://github.com/bacf5/ducks-api]
 - [ ] Add images and GIFs to the README to showcase the app
 - [ ] Include a disclaimer that facts are not verified lol
+- [x] ~~Add sound feedback when you tap the button~~
+- [ ] Make the img tapable to enlarge - probably.
+- [ ] Add a form to POST a new duck fact into my API.
+
 
 phew.
 
@@ -50,5 +54,7 @@ phew.
 > The app icon was made with Gemini AI.
 
 -----
+
+I know my code doesn't respect much about DRY principle and stuff. I was mainly experimenting to become more familiar with SwiftUI and Xcode
 
 Ciao.
