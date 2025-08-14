@@ -56,6 +56,7 @@ struct AnimalView: View {
                                         image
                                             .resizable()
                                             .scaledToFill()
+                                            .transition(.opacity.animation(.easeIn(duration:0.5)))
                                     } placeholder: {
                                         ProgressView()
                                     }
@@ -148,6 +149,7 @@ struct AnimalView: View {
                                         image
                                             .resizable()
                                             .scaledToFill()
+                                            .transition(.opacity.animation(.easeIn(duration:0.5)))
                                     } placeholder: {
                                         ProgressView()
                                     }
@@ -236,6 +238,7 @@ struct AnimalView: View {
                                         image
                                             .resizable()
                                             .scaledToFill()
+                                            .transition(.opacity.animation(.easeIn(duration:0.5)))
                                     } placeholder: {
                                         ProgressView()
                                     }
@@ -292,5 +295,5 @@ struct AnimalView: View {
 }
 
 #Preview {
-    AnimalView(animal: "duck")
+    AnimalView(animal: "cat")
 }
