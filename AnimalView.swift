@@ -7,10 +7,13 @@
 //
 
 import SwiftUI
+import AVFAudio
 
 struct AnimalView: View {
+    @State private var audioPlayer: AVAudioPlayer!
     let vm = ViewModel()
     let animal: String
+    let soundName = "pop"
     
     var body: some View {
         GeometryReader { geo in
@@ -69,10 +72,24 @@ struct AnimalView: View {
                             Spacer()
                             
                         }
+                        
                         Button {
+                            guard let soundFile = NSDataAsset(name: soundName) else {
+                                print("😵‍💫 could not read file name \(soundName)")
+                                return
+                            }
+                            
+                            do {
+                                audioPlayer = try AVAudioPlayer(data: soundFile.data)
+                                audioPlayer.play()
+                            } catch {
+                                print("😵‍💫 could not read file name \(error.localizedDescription) creating audioPlayer")
+                            }
+                            
                             Task {
                                 await vm.getData(for: animal)
                             }
+                            
                         } label: {
                             Text("Fact Attacc! 🐱")
                                 .font(.title)
@@ -142,6 +159,17 @@ struct AnimalView: View {
                             Spacer()
                         }
                         Button {
+                            guard let soundFile = NSDataAsset(name: soundName) else {
+                                print("😵‍💫 could not read file name \(soundName)")
+                                return
+                            }
+                            
+                            do {
+                                audioPlayer = try AVAudioPlayer(data: soundFile.data)
+                                audioPlayer.play()
+                            } catch {
+                                print("😵‍💫 could not read file name \(error.localizedDescription) creating audioPlayer")
+                            }
                             Task {
                                 await vm.getData(for: animal)
                             }
@@ -213,6 +241,17 @@ struct AnimalView: View {
                             Spacer()
                         }
                         Button {
+                            guard let soundFile = NSDataAsset(name: soundName) else {
+                                print("😵‍💫 could not read file name \(soundName)")
+                                return
+                            }
+                            
+                            do {
+                                audioPlayer = try AVAudioPlayer(data: soundFile.data)
+                                audioPlayer.play()
+                            } catch {
+                                print("😵‍💫 could not read file name \(error.localizedDescription) creating audioPlayer")
+                            }
                             Task {
                                 await vm.getData(for: animal)
                             }
@@ -237,5 +276,5 @@ struct AnimalView: View {
 }
 
 #Preview {
-    AnimalView(animal: "cat")
+    AnimalView(animal: "duck")
 }
