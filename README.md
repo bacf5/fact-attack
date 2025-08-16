@@ -26,13 +26,13 @@ So i made Fact Attack! because obviusly i love these animals, but also, wanted t
 - SwiftUI
 - Xcode 16.4
 
-## Concepts Used
+## Concepts explored
 
-TabView • JSONDecoder() • Async API Calls • Async Image Loading • task() • do-catch • Access Control • MVVM • @Observable • @MainActor • Privacy Best Practices • get/set • Separation of Concern to name a few
+TabView • JSONDecoder() • Async API Calls • Async Image Loading • task() • do-catch • Access Control • MVVM • @Observable • @MainActor • Privacy • get/set • Separation of Concern to name a few
 
-## Showcase
+## Preview
 
-- Something i have to do.
+![](SampleData/factattack-preview.webp)
 
 ## To-do
 
@@ -41,12 +41,12 @@ TabView • JSONDecoder() • Async API Calls • Async Image Loading • task()
 - [x] ~~Add animation and improved styling to the main button.~~
 - [ ] Add an “Info” viewSheet with Wikipedia Info and links for each animal. Maybe?
 - [x] ~~Create a custom REST API for duck facts (none currently available that i could find).~~ [duck API](https://github.com/bacf5/ducks-api)
-- [ ] Add images and GIFs to the README to showcase the app
+- [x] ~~Add images and GIFs to the README to showcase the app~~
 - [ ] Include a disclaimer that facts are not verified lol
 - [x] ~~Add sound feedback when you tap the button~~
 - [ ] Make the img tapable to enlarge - probably.
 - [ ] Add a form to POST a new duck fact into my API.
-- [ ] Add a custom launch screen.
+- [ ] Add a custom launch screen. <- NOPE
 
 
 phew.
