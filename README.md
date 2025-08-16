@@ -28,7 +28,7 @@ So i made Fact Attack! because obviusly i love these animals, but also, wanted t
 
 ## Concepts explored
 
-TabView • JSONDecoder() • Async API Calls • Async Image Loading • task() • do-catch • Access Control • MVVM • @Observable • @MainActor • Privacy • get/set • Separation of Concern to name a few
+TabView • .sensoryFeedback() • JSONDecoder() • Async API Calls • Async Image Loading • task() • do-catch • Access Control • MVVM • @Observable • @MainActor • Privacy • get/set • Separation of Concern to name a few
 
 ## Preview
 
@@ -46,7 +46,8 @@ TabView • JSONDecoder() • Async API Calls • Async Image Loading • task()
 - [x] ~~Add sound feedback when you tap the button~~
 - [ ] Make the img tapable to enlarge - probably.
 - [ ] Add a form to POST a new duck fact into my API.
-- [ ] Add a custom launch screen. <- NOPE
+- [ ] Add a custom launch screen. <- NOPE // tbh i did it but was super ugly.
+- [x] ~~Added sensory feedback when you tap the button~~
 
 
 phew.
