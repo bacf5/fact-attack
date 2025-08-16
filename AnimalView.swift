@@ -12,6 +12,7 @@ import AVFAudio
 struct AnimalView: View {
     @State private var audioPlayer: AVAudioPlayer!
     @State private var isButtonDisabled = false
+    @State private var isButtonPressed = false
     let vm = ViewModel()
     let animal: String
     let soundName = "pop"
@@ -77,6 +78,7 @@ struct AnimalView: View {
                         
                         Button {
                             isButtonDisabled.toggle()
+                            isButtonPressed.toggle()
                             
                             guard let soundFile = NSDataAsset(name: soundName) else {
                                 print("😵‍💫 could not read file name \(soundName)")
@@ -105,7 +107,9 @@ struct AnimalView: View {
                                 .shadow(color: .black, radius: 3)
                                 
                         }
+                        .sensoryFeedback(.success, trigger: isButtonPressed)
                         .disabled(isButtonDisabled)
+                        
                         
                         Spacer(minLength: 95)
                         
@@ -168,6 +172,7 @@ struct AnimalView: View {
                         }
                         Button {
                             isButtonDisabled.toggle()
+                            isButtonPressed.toggle()
                             
                             guard let soundFile = NSDataAsset(name: soundName) else {
                                 print("😵‍💫 could not read file name \(soundName)")
@@ -194,6 +199,7 @@ struct AnimalView: View {
                                 .clipShape(.rect(cornerRadius: 10))
                                 .shadow(color: .black, radius: 3)
                         }
+                        .sensoryFeedback(.success, trigger: isButtonPressed)
                         .disabled(isButtonDisabled)
                         
                         Spacer(minLength: 95)
@@ -256,6 +262,7 @@ struct AnimalView: View {
                         }
                         Button {
                             isButtonDisabled.toggle()
+                            isButtonPressed.toggle()
                             
                             guard let soundFile = NSDataAsset(name: soundName) else {
                                 print("😵‍💫 could not read file name \(soundName)")
@@ -282,6 +289,7 @@ struct AnimalView: View {
                                 .clipShape(.rect(cornerRadius: 10))
                                 .shadow(color: .black, radius: 3)
                         }
+                        .sensoryFeedback(.success, trigger: isButtonPressed)
                         .disabled(isButtonDisabled)
                         
                         Spacer(minLength: 95)
