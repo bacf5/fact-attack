@@ -44,8 +44,9 @@ TabView • .sensoryFeedback() • JSONDecoder() • Async API Calls • Async I
 - [x] ~~Add images and GIFs to the README to showcase the app~~
 - [ ] Include a disclaimer that facts are not verified lol
 - [x] ~~Add sound feedback when you tap the button~~
-- [ ] Make the img tapable to enlarge - probably.
+- [x] ~~Make the img tapable to enlarge - probably.~~
 - [ ] Add a form to POST a new duck fact into my API.
+- [ ] GET a new duck fact from my API.
 - [ ] Add a custom launch screen. <- NOPE // tbh i did it but was super ugly.
 - [x] ~~Added sensory feedback when you tap the button~~
 
