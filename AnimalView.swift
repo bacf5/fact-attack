@@ -10,12 +10,18 @@ import SwiftUI
 import AVFAudio
 
 struct AnimalView: View {
+    
+    @State private var showPhotoView = false
+    @State private var uiImage = UIImage()
+    
     @State private var audioPlayer: AVAudioPlayer!
     @State private var isButtonDisabled = false
     @State private var isButtonPressed = false
     let vm = ViewModel()
     let animal: String
     let soundName = "pop"
+
+    
     
     var body: some View {
         GeometryReader { geo in
@@ -58,6 +64,11 @@ struct AnimalView: View {
                                             .resizable()
                                             .scaledToFill()
                                             .transition(.opacity.animation(.easeIn(duration:0.5)))
+                                            .onTapGesture {
+                                                let renderer = ImageRenderer(content: image)
+                                                uiImage = renderer.uiImage ?? UIImage()
+                                                showPhotoView.toggle()
+                                            }
                                     } placeholder: {
                                         ProgressView()
                                     }
@@ -68,6 +79,7 @@ struct AnimalView: View {
                                     height: geo.size.height / 1.8
                                 )
                                 .clipShape(.rect(cornerRadius: 50))
+                                .shadow(color: .black, radius: 15)
                             case .failed(let error):
                                 Text(error.localizedDescription)
                             }
@@ -154,6 +166,11 @@ struct AnimalView: View {
                                             .resizable()
                                             .scaledToFill()
                                             .transition(.opacity.animation(.easeIn(duration:0.5)))
+                                            .onTapGesture {
+                                                let renderer = ImageRenderer(content: image)
+                                                uiImage = renderer.uiImage ?? UIImage()
+                                                showPhotoView.toggle()
+                                            }
                                     } placeholder: {
                                         ProgressView()
                                     }
@@ -164,6 +181,7 @@ struct AnimalView: View {
                                     height: geo.size.height / 1.8
                                 )
                                 .clipShape(.rect(cornerRadius: 50))
+                                .shadow(color: .black, radius: 15)
                             case .failed(let error):
                                 Text(error.localizedDescription)
                             }
@@ -245,6 +263,11 @@ struct AnimalView: View {
                                             .resizable()
                                             .scaledToFill()
                                             .transition(.opacity.animation(.easeIn(duration:0.5)))
+                                            .onTapGesture {
+                                                let renderer = ImageRenderer(content: image)
+                                                uiImage = renderer.uiImage ?? UIImage()
+                                                showPhotoView.toggle()
+                                            }
                                     } placeholder: {
                                         ProgressView()
                                     }
@@ -255,6 +278,7 @@ struct AnimalView: View {
                                     height: geo.size.height / 1.8
                                 )
                                 .clipShape(.rect(cornerRadius: 50))
+                                .shadow(color: .black, radius: 15)
                             case .failed(let error):
                                 Text(error.localizedDescription)
                             }
@@ -297,11 +321,14 @@ struct AnimalView: View {
                 }
             }
             .frame(width: geo.size.width, height: geo.size.height)
+            .sheet(isPresented: $showPhotoView) {
+                PhotoView(uiImage: uiImage, animal: animal)
+            }
         }
         .ignoresSafeArea()
     }
 }
 
 #Preview {
-    AnimalView(animal: "cat")
+    AnimalView(animal: "duck")
 }
