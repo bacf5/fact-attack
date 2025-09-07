@@ -1,21 +1,27 @@
-//
-//  FetchService.swift
-//  FactAttack
-//
-//  Created by Bruno Agustín Caruso Fassa on 12/07/2025.
-//
-
 import Foundation
+import SwiftUI
 
 // FecthController
 struct FetchService {
+    
+    enum ConfigDecoder {
+        static var DucksApiKey: String {
+            guard let key = Bundle.main.infoDictionary?["DUCK_API_KEY"] as? String else {
+               fatalError("Duck API key not found. Please add it to the Info.plist")
+            }
+            return key
+        }
+    }
+    
     
     private enum FetchError: Error {
         case badResponse
     }
     
     // Cat fetch
-    private let catImgURL = URL(string: "https://api.thecatapi.com/v1/images/search")!
+    private let catImgURL = URL(
+        string: "https://api.thecatapi.com/v1/images/search"
+    )!
     
     func fetchCatImg() async throws -> [Cats] {
         
@@ -41,7 +47,9 @@ struct FetchService {
     
     func fetchCatFact() async throws -> CatsFact {
         
-        let (data, response) = try await URLSession.shared.data(from: catFactURL)
+        let (data, response) = try await URLSession.shared.data(
+            from: catFactURL
+        )
         
         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
             throw FetchError.badResponse
@@ -55,7 +63,9 @@ struct FetchService {
     
     
     // Dog fetch
-    private let dogImgURL = URL(string: "https://dog.ceo/api/breeds/image/random")!
+    private let dogImgURL = URL(
+        string: "https://dog.ceo/api/breeds/image/random"
+    )!
     
     func fetchDogImg() async throws -> Dogs {
         let (data, response) = try await URLSession.shared.data(from: dogImgURL)
@@ -74,7 +84,9 @@ struct FetchService {
     
     func fetchDogFact() async throws -> DogsFact {
         
-        let (data, response) = try await URLSession.shared.data(from: dogFactURL)
+        let (data, response) = try await URLSession.shared.data(
+            from: dogFactURL
+        )
         
         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
             throw FetchError.badResponse
@@ -85,14 +97,16 @@ struct FetchService {
         return dogFact
     }
     
-//    --- [UPDATE] ---
+    //    --- [UPDATE] ---
     
     // Fetch duck img
     
     private let duckImageURL = URL(string:"https://random-d.uk/api/v2/random")!
     
     func fetchDuckImg() async throws -> Ducks {
-        let (data, response) = try await URLSession.shared.data(from: duckImageURL)
+        let (data, response) = try await URLSession.shared.data(
+            from: duckImageURL
+        )
         
         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
             throw FetchError.badResponse
@@ -103,15 +117,31 @@ struct FetchService {
         return duckImg
     }
     
-    // Fetch duck fact
+    // Fetch fact from my API
     
-//   -------[NO API FOUND TO DO THIS, BUT NEXT THING TO DO IS MAKE ONE]------------------
+    private let duckFactURL = URL(
+        string: "https://duck-api.netlify.app/api/facts/random"
+    )!
     
-    
-    
-    
-    // For catimgurl at some point im gonna need an api-key wich i have.
-    
-    
+    func fetchDuckFact() async throws -> DucksFact {
+        var request = URLRequest(url: duckFactURL)
+        request.httpMethod = "GET"
+        request
+            .setValue(
+                ConfigDecoder.DucksApiKey,
+                forHTTPHeaderField: "X-api-key"
+            )
+        let (data, response) = try await URLSession.shared.data(for: request)
+        
+        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+            throw FetchError.badResponse
+        }
+        
+        let duckFact = try JSONDecoder().decode(DucksFact.self, from: data)
+        print(duckFact.fact)
+        
+        return duckFact
+        
+    }
     
 }
