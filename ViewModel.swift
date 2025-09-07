@@ -1,11 +1,3 @@
-//
-//  ViewModel.swift
-//  FactAttack
-//
-//  Created by Bruno Agustín Caruso Fassa on 16/07/2025.
-//
-
-
 import Foundation
 
 @Observable
@@ -27,6 +19,7 @@ class ViewModel {
     var dogImg: Dogs
     var dogFact: DogsFact
     var duckImg: Ducks
+    var duckFact: DucksFact
     
  
     init() {
@@ -51,6 +44,10 @@ class ViewModel {
         let duckData = try! Data(contentsOf: Bundle.main.url(forResource: "sampleduck", withExtension: "json")!)
         
         duckImg = try! decoder.decode(Ducks.self, from: duckData)
+        
+        let duckFactData = try! Data(contentsOf: Bundle.main.url(forResource: "sampleduckfacts", withExtension: "json")!)
+        
+        duckFact = try! decoder.decode(DucksFact.self, from: duckFactData)
     }
     
     func getData(for animal: String) async {
@@ -82,6 +79,7 @@ class ViewModel {
         } else if (animal == "duck") {
             do {
                 duckImg = try await fetcher.fetchDuckImg()
+                duckFact = try await fetcher.fetchDuckFact()
                 
                 status = .success
             } catch {
@@ -89,17 +87,6 @@ class ViewModel {
             }
         }
         
-//        do {
-//            catImg = try await fetcher.fetchCatImg()
-//            catFact = try await fetcher.fetchCatFact()
-//            dogImg = try await fetcher.fetchDogImg()
-//            dogFact = try await fetcher.fetchDogFact()
-//            
-//            status = .success
-//            
-//        } catch {
-//            status = .failed(error: error)
-//        }
     }
     
 }
