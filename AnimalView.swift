@@ -63,9 +63,16 @@ struct AnimalView: View {
                                         image
                                             .resizable()
                                             .scaledToFill()
-                                            .transition(.opacity.animation(.easeIn(duration:0.5)))
+                                            .transition(
+                                                .opacity
+                                                    .animation(
+                                                        .easeIn(duration:0.5)
+                                                    )
+                                            )
                                             .onTapGesture {
-                                                let renderer = ImageRenderer(content: image)
+                                                let renderer = ImageRenderer(
+                                                    content: image
+                                                )
                                                 uiImage = renderer.uiImage ?? UIImage()
                                                 showPhotoView.toggle()
                                             }
@@ -93,21 +100,28 @@ struct AnimalView: View {
                             isButtonPressed.toggle()
                             
                             guard let soundFile = NSDataAsset(name: soundName) else {
-                                print("😵‍💫 could not read file name \(soundName)")
+                                print(
+                                    "😵‍💫 could not read file name \(soundName)"
+                                )
                                 return
                             }
                             do {
-                                audioPlayer = try AVAudioPlayer(data: soundFile.data)
+                                audioPlayer = try AVAudioPlayer(
+                                    data: soundFile.data
+                                )
                                 audioPlayer.play()
                             } catch {
-                                print("😵‍💫 could not read file name \(error.localizedDescription) creating audioPlayer")
+                                print(
+                                    "😵‍💫 could not read file name \(error.localizedDescription) creating audioPlayer"
+                                )
                             }
                             
                             Task {
                                 await vm.getData(for: animal)
-                                try await Task.sleep(nanoseconds: 3 * 1_000_000_000)
+                                try await Task
+                                    .sleep(nanoseconds: 3 * 1_000_000_000)
                                 isButtonDisabled.toggle()
-                                }
+                            }
                             
                         } label: {
                             Text("Fact Attacc! 🐱")
@@ -165,9 +179,16 @@ struct AnimalView: View {
                                         image
                                             .resizable()
                                             .scaledToFill()
-                                            .transition(.opacity.animation(.easeIn(duration:0.5)))
+                                            .transition(
+                                                .opacity
+                                                    .animation(
+                                                        .easeIn(duration:0.5)
+                                                    )
+                                            )
                                             .onTapGesture {
-                                                let renderer = ImageRenderer(content: image)
+                                                let renderer = ImageRenderer(
+                                                    content: image
+                                                )
                                                 uiImage = renderer.uiImage ?? UIImage()
                                                 showPhotoView.toggle()
                                             }
@@ -193,19 +214,26 @@ struct AnimalView: View {
                             isButtonPressed.toggle()
                             
                             guard let soundFile = NSDataAsset(name: soundName) else {
-                                print("😵‍💫 could not read file name \(soundName)")
+                                print(
+                                    "😵‍💫 could not read file name \(soundName)"
+                                )
                                 return
                             }
                             
                             do {
-                                audioPlayer = try AVAudioPlayer(data: soundFile.data)
+                                audioPlayer = try AVAudioPlayer(
+                                    data: soundFile.data
+                                )
                                 audioPlayer.play()
                             } catch {
-                                print("😵‍💫 could not read file name \(error.localizedDescription) creating audioPlayer")
+                                print(
+                                    "😵‍💫 could not read file name \(error.localizedDescription) creating audioPlayer"
+                                )
                             }
                             Task {
                                 await vm.getData(for: animal)
-                                try await Task.sleep(nanoseconds: 3 * 1_000_000_000)
+                                try await Task
+                                    .sleep(nanoseconds: 3 * 1_000_000_000)
                                 isButtonDisabled.toggle()
                             }
                         } label: {
@@ -244,16 +272,14 @@ struct AnimalView: View {
                             case .fetching:
                                 ProgressView()
                             case .success:
-                                Text(
-                                    "There's no fact for ducks... YET"
-                                )
-                                .minimumScaleFactor(0.5)
-                                .multilineTextAlignment(.center)
-                                .foregroundStyle(.white)
-                                .padding()
-                                .background(.black.opacity(0.7))
-                                .clipShape(.rect(cornerRadius: 25))
-                                
+                                Text("\(vm.duckFact.fact)")
+                                    .minimumScaleFactor(0.5)
+                                    .multilineTextAlignment(.center)
+                                    .foregroundStyle(.white)
+                                    .padding()
+                                    .background(.black.opacity(0.7))
+                                    .clipShape(.rect(cornerRadius: 25))
+
                                 
                                 ZStack(alignment: .bottom) {
                                     AsyncImage(
@@ -262,9 +288,16 @@ struct AnimalView: View {
                                         image
                                             .resizable()
                                             .scaledToFill()
-                                            .transition(.opacity.animation(.easeIn(duration:0.5)))
+                                            .transition(
+                                                .opacity
+                                                    .animation(
+                                                        .easeIn(duration:0.5)
+                                                    )
+                                            )
                                             .onTapGesture {
-                                                let renderer = ImageRenderer(content: image)
+                                                let renderer = ImageRenderer(
+                                                    content: image
+                                                )
                                                 uiImage = renderer.uiImage ?? UIImage()
                                                 showPhotoView.toggle()
                                             }
@@ -279,6 +312,7 @@ struct AnimalView: View {
                                 )
                                 .clipShape(.rect(cornerRadius: 50))
                                 .shadow(color: .black, radius: 15)
+                                
                             case .failed(let error):
                                 Text(error.localizedDescription)
                             }
@@ -289,19 +323,26 @@ struct AnimalView: View {
                             isButtonPressed.toggle()
                             
                             guard let soundFile = NSDataAsset(name: soundName) else {
-                                print("😵‍💫 could not read file name \(soundName)")
+                                print(
+                                    "😵‍💫 could not read file name \(soundName)"
+                                )
                                 return
                             }
                             
                             do {
-                                audioPlayer = try AVAudioPlayer(data: soundFile.data)
+                                audioPlayer = try AVAudioPlayer(
+                                    data: soundFile.data
+                                )
                                 audioPlayer.play()
                             } catch {
-                                print("😵‍💫 could not read file name \(error.localizedDescription) creating audioPlayer")
+                                print(
+                                    "😵‍💫 could not read file name \(error.localizedDescription) creating audioPlayer"
+                                )
                             }
                             Task {
                                 await vm.getData(for: animal)
-                                try await Task.sleep(nanoseconds: 3 * 1_000_000_000)
+                                try await Task
+                                    .sleep(nanoseconds: 3 * 1_000_000_000)
                                 isButtonDisabled.toggle()
                             }
                         } label: {
@@ -318,12 +359,14 @@ struct AnimalView: View {
                         
                         Spacer(minLength: 95)
                     }
+                    .frame(width: geo.size.width, height: geo.size.height)
                 }
             }
             .frame(width: geo.size.width, height: geo.size.height)
-            .sheet(isPresented: $showPhotoView) {
-                PhotoView(uiImage: uiImage, animal: animal)
-            }
+            
+        }
+        .sheet(isPresented: $showPhotoView) {
+            PhotoView(uiImage: uiImage, animal: animal)
         }
         .ignoresSafeArea()
     }
