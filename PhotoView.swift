@@ -1,10 +1,3 @@
-//
-//  PhotoView.swift
-//  FactAttack
-//
-//  Created by Bruno Agustin Caruso Fassa on 02.09.25.
-//
-
 import SwiftUI
 
 struct PhotoView: View {
