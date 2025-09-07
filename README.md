@@ -19,7 +19,7 @@ Fact Attack! is a lightweight app that delivers random images and facts about ca
 
 ## Motivation
 
-So i made Fact Attack! because obviusly i love these animals, but also, wanted to combine that passion with my journey in learning SwiftUI development. This project was the perfect opportunity to practice asynchronous API calls, explore the MVVM architecture, work with URLSession for networking, and use JSONDecoder() to handle data parsing.
+So i made Fact Attack! because obviusly i love these animals, but also, combine that with my journey in learning SwiftUI development. This project was the opportunity to practice asynchronous API calls, explore the MVVM architecture, work with URLSession for networking, and use JSONDecoder() to handle data parsing to name a few.
 
 ## Built with
 
@@ -28,7 +28,7 @@ So i made Fact Attack! because obviusly i love these animals, but also, wanted t
 
 ## Concepts explored
 
-TabView • .sensoryFeedback() • JSONDecoder() • Async API Calls • Async Image Loading • task() • do-catch • Access Control • MVVM • @Observable • @MainActor • Privacy • get/set • Separation of Concern to name a few
+TabView • .sensoryFeedback() • JSONDecoder() • Async API Calls • Async Image Loading • task() • do-catch • Access Control • MVVM • @Observable • @MainActor • Privacy • get/set • Separation of Concern etc
 
 ## Preview
 
@@ -49,9 +49,9 @@ TabView • .sensoryFeedback() • JSONDecoder() • Async API Calls • Async I
 - [ ] GET a new duck fact from my API.
 - [ ] Add a custom launch screen. <- NOPE // tbh i did it but was super ugly.
 - [x] ~~Added sensory feedback when you tap the button~~
+- [x] ~~Added facts for ducks view~~
 
 
-phew.
 
 > [!NOTE]
 > The app icon and the background images are made with Gemini AI.
