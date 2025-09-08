@@ -101,11 +101,18 @@ struct FetchService {
     
     // Fetch duck img
     
-    private let duckImageURL = URL(string:"https://random-d.uk/api/v2/random")!
+//    new API: https://duck-api.netlify.app/api/image/random
+//    old API: https://random-d.uk/api/v2/random
+    
+    private let duckImageURL = URL(string:"https://duck-api.netlify.app/api/image/random")!
     
     func fetchDuckImg() async throws -> Ducks {
+        var request = URLRequest(url: duckImageURL)
+        request.httpMethod = "GET"
+        request.setValue(ConfigDecoder.DucksApiKey, forHTTPHeaderField: "X-api-key")
+        
         let (data, response) = try await URLSession.shared.data(
-            from: duckImageURL
+            for: request
         )
         
         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
@@ -138,7 +145,6 @@ struct FetchService {
         }
         
         let duckFact = try JSONDecoder().decode(DucksFact.self, from: data)
-        print(duckFact.fact)
         
         return duckFact
         
