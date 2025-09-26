@@ -95,7 +95,7 @@ struct AnimalView: View {
                             
                         }
                         
-                        Button {
+                        Button ("Fact Attacc! 🐱") {
                             isButtonDisabled.toggle()
                             isButtonPressed.toggle()
                             
@@ -123,18 +123,27 @@ struct AnimalView: View {
                                 isButtonDisabled.toggle()
                             }
                             
-                        } label: {
-                            Text("Fact Attacc! 🐱")
-                                .font(.title)
-                                .foregroundStyle(.white)
-                                .padding()
-                                .background(.orange.opacity(0.8))
-                                .clipShape(.rect(cornerRadius: 10))
-                                .shadow(color: .black, radius: 3)
-                                
                         }
+                        .font(.title)
+                        .buttonStyle(.glass)
+                        .buttonSizing(.flexible)
+                        .padding()
+                        .shadow(color: .black, radius: 3)
                         .sensoryFeedback(.success, trigger: isButtonPressed)
                         .disabled(isButtonDisabled)
+                        
+//                        label: {
+//                            Text("Fact Attacc! 🐱")
+//                                .font(.title)
+//                                .foregroundStyle(.white)
+//                                .padding()
+//                                .background(.orange.opacity(0.8))
+//                                .clipShape(.rect(cornerRadius: 10))
+//                                .shadow(color: .black, radius: 3)
+//                                
+//                        }
+//                        .sensoryFeedback(.success, trigger: isButtonPressed)
+//                        .disabled(isButtonDisabled)
                         
                         
                         Spacer(minLength: 95)
@@ -209,7 +218,7 @@ struct AnimalView: View {
                             
                             Spacer()
                         }
-                        Button {
+                        Button ("Fact Attacc! 🐶") {
                             isButtonDisabled.toggle()
                             isButtonPressed.toggle()
                             
@@ -236,17 +245,26 @@ struct AnimalView: View {
                                     .sleep(nanoseconds: 3 * 1_000_000_000)
                                 isButtonDisabled.toggle()
                             }
-                        } label: {
-                            Text("Fact Attacc! 🐶")
-                                .font(.title)
-                                .foregroundStyle(.white)
-                                .padding()
-                                .background(.brown.opacity(0.8))
-                                .clipShape(.rect(cornerRadius: 10))
-                                .shadow(color: .black, radius: 3)
                         }
+                        .font(.title)
+                        .buttonStyle(.glass)
+                        .buttonSizing(.flexible)
+                        .padding()
+                        .shadow(color: .black, radius: 3)
                         .sensoryFeedback(.success, trigger: isButtonPressed)
                         .disabled(isButtonDisabled)
+                        
+//                        label: {
+//                            Text("Fact Attacc! 🐶")
+//                                .font(.title)
+//                                .foregroundStyle(.white)
+//                                .padding()
+//                                .background(.brown.opacity(0.8))
+//                                .clipShape(.rect(cornerRadius: 10))
+//                                .shadow(color: .black, radius: 3)
+//                        }
+//                        .sensoryFeedback(.success, trigger: isButtonPressed)
+//                        .disabled(isButtonDisabled)
                         
                         Spacer(minLength: 95)
                         
@@ -318,7 +336,8 @@ struct AnimalView: View {
                             }
                             Spacer()
                         }
-                        Button {
+                        
+                        Button ("Duck Attacc! 🦆"){
                             isButtonDisabled.toggle()
                             isButtonPressed.toggle()
                             
@@ -345,17 +364,29 @@ struct AnimalView: View {
                                     .sleep(nanoseconds: 3 * 1_000_000_000)
                                 isButtonDisabled.toggle()
                             }
-                        } label: {
-                            Text("Duck Attacc! 🦆")
-                                .font(.title)
-                                .foregroundStyle(.white)
-                                .padding()
-                                .background(.teal.opacity(0.7))
-                                .clipShape(.rect(cornerRadius: 10))
-                                .shadow(color: .black, radius: 3)
                         }
+                        .font(.title)
+                        .buttonStyle(.glass)
+                        .buttonSizing(.flexible)
+                        .padding()
+                        .shadow(color: .black, radius: 3)
                         .sensoryFeedback(.success, trigger: isButtonPressed)
                         .disabled(isButtonDisabled)
+                       
+                        
+                        
+                        //                        label: {
+                        //                            Text("Duck Attacc! 🦆")
+                        //                                .font(.title)
+                        //                                .foregroundStyle(.white)
+                        //                                .padding()
+                        //                                .background(.teal.opacity(0.7))
+                        //                                .clipShape(.rect(cornerRadius: 10))
+                        //                                .shadow(color: .black, radius: 3)
+                        //                                
+                        //                        }
+                        //                        .sensoryFeedback(.success, trigger: isButtonPressed)
+                        //                        .disabled(isButtonDisabled)
                         
                         Spacer(minLength: 95)
                     }
@@ -365,13 +396,13 @@ struct AnimalView: View {
             .frame(width: geo.size.width, height: geo.size.height)
             
         }
-        .sheet(isPresented: $showPhotoView) {
-            PhotoView(uiImage: uiImage, animal: animal)
-        }
+//        .sheet(isPresented: $showPhotoView) {
+//            PhotoView(uiImage: uiImage, animal: animal)
+//        }
         .ignoresSafeArea()
     }
 }
 
 #Preview {
-    AnimalView(animal: "duck")
+    AnimalView(animal: "dog")
 }
