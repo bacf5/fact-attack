@@ -50,6 +50,7 @@ TabView • .sensoryFeedback() • JSONDecoder() • Async API Calls • Async I
 - [ ] Add a custom launch screen. <- NOPE // tbh i did it but was super ugly.
 - [x] ~~Added sensory feedback when you tap the button~~
 - [x] ~~Added facts for ducks view~~
+- [x] ~~iOS 26 liquid glass update~~
 
 
 
