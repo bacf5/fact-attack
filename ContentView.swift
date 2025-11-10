@@ -1,6 +1,8 @@
 import SwiftUI
+import TipKit
 
 struct ContentView: View {
+
     var body: some View {
         TabView {
             Tab("Cats", image: "cat-tabview") {
