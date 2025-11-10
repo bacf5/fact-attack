@@ -1,8 +1,9 @@
 <h2 align="center">
-  ✨ Fact Attack!🐾 ✨
+  ✨ Fact Attack! 🐾 ✨
+  <br></br>
+  <p><img width="150" alt="image" src="Assets.xcassets/AppIcon.appiconset/appIcon2.png"></p>
 </h2>
 
-<p align="center"><img width="300" alt="image" src="Assets.xcassets/AppIcon.appiconset/appIcon2.png"></p>
 
 ![FactAttack screen](SampleData/preview-photo-app.png)
 
@@ -12,8 +13,8 @@
 - [Description](#description)
 - [Motivation](#motivation)
 - [Built with](#built-with)
-- [Concepts Used](#concepts-used)
-- [Showcase](#showcase)
+- [Concepts explored](#concepts-explored)
+- [Preview](#preview)
 - [To-do](#to-do)
 
 ## Description
@@ -65,3 +66,4 @@ TabView • .sensoryFeedback() • JSONDecoder() • Async API Calls • Async I
 I was mainly experimenting to become more familiar with SwiftUI and Xcode.
 
 Ciao.
+
