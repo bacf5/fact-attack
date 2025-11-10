@@ -32,7 +32,9 @@ TabView • .sensoryFeedback() • JSONDecoder() • Async API Calls • Async I
 
 ## Preview
 
-![](SampleData/factattack-preview.webp)
+![](SampleData/preview-photo-app)
+
+<p align="center"><img width="450" alt="image" src="SampleData/video-showcase"></p>
 
 ## To-do
 
@@ -42,12 +44,12 @@ TabView • .sensoryFeedback() • JSONDecoder() • Async API Calls • Async I
 - [ ] Add an “Info” viewSheet with Wikipedia Info and links for each animal. Maybe?
 - [x] ~~Create a custom REST API for duck facts (none currently available that i could find).~~ [duck API](https://github.com/bacf5/ducks-api)
 - [x] ~~Add images and GIFs to the README to showcase the app~~
-- [ ] Include a disclaimer that facts are not verified lol
+- [x] Include a disclaimer that facts are not verified lol
 - [x] ~~Add sound feedback when you tap the button~~
 - [x] ~~Make the img tapable to enlarge - probably.~~
 - [ ] Add a form to POST a new duck fact into my API.
-- [ ] GET a new duck fact from my API.
-- [ ] Add a custom launch screen. <- NOPE // tbh i did it but was super ugly.
+- [x] ~~GET a new duck fact from my API.~~
+- [x] ~~Add a custom launch screen. ~~ <- NOPE // tbh i did it but was super ugly.
 - [x] ~~Added sensory feedback when you tap the button~~
 - [x] ~~Added facts for ducks view~~
 - [x] ~~iOS 26 liquid glass update~~
@@ -59,6 +61,6 @@ TabView • .sensoryFeedback() • JSONDecoder() • Async API Calls • Async I
 
 -----
 
-I know my code doesn't respect much about DRY principle and stuff. I was mainly experimenting to become more familiar with SwiftUI and Xcode
+I was mainly experimenting to become more familiar with SwiftUI and Xcode.
 
 Ciao.
