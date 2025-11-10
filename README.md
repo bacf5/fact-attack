@@ -4,6 +4,9 @@
 
 <p align="center"><img width="300" alt="image" src="Assets.xcassets/AppIcon.appiconset/appIcon2.png"></p>
 
+![FactAttack screen](SampleData/preview-photo-app.png)
+
+
 ## Table of Contents
 
 - [Description](#description)
@@ -31,8 +34,6 @@ So i made Fact Attack! because obviusly i love these animals, but also, combine 
 TabView • .sensoryFeedback() • JSONDecoder() • Async API Calls • Async Image Loading • task() • do-catch • Access Control • MVVM • @Observable • @MainActor • Privacy • get/set • Separation of Concern etc
 
 ## Preview
-
-![FactAttack screen](SampleData/preview-photo-app.png)
 
 <p align="center"><img width="450" alt="image" src="SampleData/video-showcase.gif"></p>
 
