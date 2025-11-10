@@ -32,9 +32,9 @@ TabView • .sensoryFeedback() • JSONDecoder() • Async API Calls • Async I
 
 ## Preview
 
-![](SampleData/preview-photo-app)
+![FactAttack screen](SampleData/preview-photo-app.png)
 
-<p align="center"><img width="450" alt="image" src="SampleData/video-showcase"></p>
+<p align="center"><img width="450" alt="image" src="SampleData/video-showcase.gif"></p>
 
 ## To-do
 
