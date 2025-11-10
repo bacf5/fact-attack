@@ -8,21 +8,20 @@
 
 import SwiftUI
 import AVFAudio
+import TipKit
 
 struct AnimalView: View {
     
     @State private var showPhotoView = false
     @State private var uiImage = UIImage()
-    
     @State private var audioPlayer: AVAudioPlayer!
     @State private var isButtonDisabled = false
     @State private var isButtonPressed = false
     let vm = ViewModel()
     let animal: String
     let soundName = "pop"
+    let factTip = TipView()
 
-    
-    
     var body: some View {
         GeometryReader { geo in
             
@@ -128,11 +127,14 @@ struct AnimalView: View {
                         .buttonStyle(.glass)
                         .buttonSizing(.flexible)
                         .padding()
+                        .onTapGesture {
+                            factTip.invalidate(reason: .actionPerformed)
+                        }
                         .shadow(color: .black, radius: 3)
                         .sensoryFeedback(.success, trigger: isButtonPressed)
                         .disabled(isButtonDisabled)
-                        
-                    
+                        .popoverTip(factTip, arrowEdge: .bottom)
+
                         Spacer(minLength: 95)
                         
                     }
@@ -361,9 +363,12 @@ struct AnimalView: View {
 //            PhotoView(uiImage: uiImage, animal: animal)
 //        }
         .ignoresSafeArea()
+        .task {
+            try? Tips.configure()
+        }
     }
 }
 
 #Preview {
-    AnimalView(animal: "duck")
+    AnimalView(animal: "cat")
 }
