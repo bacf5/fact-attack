@@ -65,5 +65,12 @@ TabView • .sensoryFeedback() • JSONDecoder() • Async API Calls • Async I
 
 I was mainly experimenting to become more familiar with SwiftUI and Xcode.
 
+Thanks to the following API that I use in this app: 
+- [Cat Images API](https://api.thecatapi.com/v1/images/search) 
+- [Cat facts API](https://meowfacts.herokuapp.com/)
+- [Dog Images API](https://dog.ceo/api/breeds/image/random)
+- [Dog facts API](https://dogapi.dog/api/facts)
+- [Ducks API](https://duck-api.netlify.app/) -> me
+
 Ciao.
 
